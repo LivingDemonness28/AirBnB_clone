@@ -176,4 +176,5 @@ $
 
 <p>All tests should also pass in non-interactive mode: <code>$ echo "python3 -m unittest discover tests" | bash</code></p>
 
-![alt-text](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231208T223420Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=633a008925809fc9b5ccb6df031275b590f1fb1cc113be3aaebabfcfb8fd8c38)
+# Authors
+- Shamoodah Ajam
