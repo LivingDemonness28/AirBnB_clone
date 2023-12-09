@@ -141,7 +141,7 @@
 $ ./console.py
 () help
 
-Documented commands (type help &lt;topic&gt;):
+Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
 
