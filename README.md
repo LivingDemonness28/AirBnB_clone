@@ -136,11 +136,12 @@
 <h2>More Info</h2>
 <h3>Execution</h3>
 <p>Your shell should work like this in interactive mode:</p>
+
 ```
 $ ./console.py
-(hbnb) help
+() help
 
-Documented commands (type help `<topic>`):
+Documented commands (type help &lt;topic&gt;):
 ========================================
 EOF  help  quit
 
