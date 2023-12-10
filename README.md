@@ -186,3 +186,10 @@ $
         <li>You should use branches and pull requests on GitHub - it will help you as team to organize your work</li>
     </ul>
 </div>
+
+--
+
+<div>
+    <h3>1. Be pycodestyle compliant!</h3>
+    <p>Write beautiful code that passes the pycodestyle checks.</p>
+</div>
