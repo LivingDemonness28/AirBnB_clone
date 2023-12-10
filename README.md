@@ -191,3 +191,39 @@ $
     <h3>1. Be pycodestyle compliant!</h3>
     <p>Write beautiful code that passes the pycodestyle checks.</p>
 </div>
+
+<div>
+    <h3>2. Unittests</h3>
+
+    <p>All your files, classes, functions must be tested with unit tests</p>
+    
+    ```
+    guillaume@ubuntu:~/AirBnB$ python3 -m unittest discover tests
+    ...................................................................................
+    ...................................................................................
+    .......................
+    ----------------------------------------------------------------------
+    Ran 189 tests in 13.135s
+    
+    OK
+    guillaume@ubuntu:~/AirBnB$
+    ```
+
+    <p><em>Note that this is just an example, the number of tests you create can be different from the above example.</em></p>
+
+    <p><strong>Warning:</strong></p>
+
+    <p>Unit tests must also pass in non-interactive mode:</p>
+
+    ```
+    guillaume@ubuntu:~/AirBnB$ echo "python3 -m unittest discover tests" | bash
+    ...................................................................................
+    ...................................................................................
+    .......................
+    ----------------------------------------------------------------------
+    Ran 189 tests in 13.135s
+    
+    OK
+    guillaume@ubuntu:~/AirBnB$
+    ```
+</div>
