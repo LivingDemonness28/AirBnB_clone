@@ -187,7 +187,7 @@ $
     </ul>
 </div>
 
-`--`
+<p align="center">---</p>
 
 <div>
     <h3>1. Be pycodestyle compliant!</h3>
