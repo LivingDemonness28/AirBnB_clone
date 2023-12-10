@@ -82,14 +82,6 @@
     <li>How to handle named arguments in a function</li>
 </ul>
 
-<h3>Copyright - Plagiarism</h3>
-<ul>    
-    <li>You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.</li>
-    <li>You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.</li>
-    <li>You are not allowed to publish any content of this project.</li>
-    <li>Any form of plagiarism is strictly forbidden and will result in removal from the program.</li>
-</ul>
-
 <hr>
 
 <h2>Requirements</h2>
@@ -129,9 +121,6 @@
 </ul>
 
 <hr>
-
-<h2>GitHub</h2>
-<p><strong>There should be one project repository per group. If you clone/fork/whatever a project repository with the same name before the second deadline, you risk a 0% score.</strong></p>
 
 <h2>More Info</h2>
 <h3>Execution</h3>
@@ -176,5 +165,24 @@ $
 
 <p>All tests should also pass in non-interactive mode: <code>$ echo "python3 -m unittest discover tests" | bash</code></p>
 
-# Authors
-- Shamoodah Ajam
+<hr>
+
+<h2>0x00. AirBnB clone - The console: Tasks :page_with_curl:</h2>
+
+<div>
+    <h3>0. README, AUTHORS</h3>
+    <ul>
+        <li>Write a <code>README.md</code>:</li>
+        <ul>
+            <li>description of the project</li>
+            <li>description of the command interpreter:</li>
+            <ul>
+                <li>how to start it</li>
+                <li>how to use it</li>
+                <li>examples</li>
+            </ul>
+        </ul>
+        <li>You should have an <code>AUTHORS</code> file at the root of your repository, listing all individuals having contributed contents to the repository. For format, reference <a href="https://intranet.alxswe.com/rltoken/_8n_z3pf5HWi1l7uv1E9iA" target="_blank">Docker's AUTHORS page</a></li>
+        <li>You should use branches and pull requests on GitHub - it will help you as team to organize your work</li>
+    </ul>
+</div>
