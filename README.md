@@ -185,7 +185,6 @@ $
         <li>You should have an <code>AUTHORS</code> file at the root of your repository, listing all individuals having contributed contents to the repository. For format, reference <a href="https://intranet.alxswe.com/rltoken/_8n_z3pf5HWi1l7uv1E9iA" target="_blank">Docker's AUTHORS page</a></li>
         <li>You should use branches and pull requests on GitHub - it will help you as team to organize your work</li>
     </ul>
-    <hr>
 </div>
 
 <div>
