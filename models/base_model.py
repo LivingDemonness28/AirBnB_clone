@@ -38,7 +38,5 @@ class BaseModel:
         return res_dict
 
     def save(self):
-        """
-        Updates the updated_at with current dt.
-        """
+        """Updates the updated_at with current dt."""
         self.updated_at = datetime.now()
