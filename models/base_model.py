@@ -9,16 +9,9 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initialize a BaseModel instance with uuid and timestamps."""
-        if kwargs:
-            for k, v in kwargs.items():
-                if k == 'created_at' or k == 'updated_at':
-                    setattr(self, k, datetime.strptime(v, "%Y-%m-%dT%H:%S.%f"))
-                elif k != "__class__":
-                    setattr(self, k, v)
-        else:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def __str__(self):
         """Return a string representation of the BaseModel instance.
@@ -27,7 +20,7 @@ class BaseModel:
             str: String representation of the BaseModel instance.
         """
         class_name = self.__class__.__name__
-        return (f"[{class_name}] ({self.id}) {self.__dict__}")
+        return f"[{class_name}] ({self.id}) {self.__dict__}"
 
     def to_dict(self):
         """Returns a dict representation of the BaseModel instance."""
