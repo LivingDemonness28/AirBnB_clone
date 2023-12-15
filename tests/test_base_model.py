@@ -4,11 +4,10 @@
 Unittest classes:
     BaseModel_to_dict
 """
-
-
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel
+
 
 class BaseModel_to_dict(unittest.TestCase):
     """Unittests for to_dict() in BaseModel class"""
