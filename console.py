@@ -1,10 +1,15 @@
 #!/usr/bin/python3
-"""Defines the HBNBCommand class"""
+"""Defines the HBNBCommand console"""
 import cmd
 import sys
 
 
 class HBNBCommand(cmd.Cmd):
+    """Defines command interpreter.
+
+    Attributes:
+        prompt (str): The command prompt.
+    """
     prompt = "(hbnb) "
 
     def do_quit(self.arg):
