@@ -25,5 +25,9 @@ class HBNBCommand(cmd.Cmd):
         """Do nothing on empty line + ENTER"""
         pass
 
+    def do_help(self, arg):
+        """Get help commands"""
+        pass
+
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
