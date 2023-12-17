@@ -2,7 +2,7 @@
 """Defines the HBNBCommand console"""
 import cmd
 import sys
-
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     """Defines command interpreter.
