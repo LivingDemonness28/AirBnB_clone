@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Defines a BaseModel class"""
+import models
 import uuid
 from datetime import datetime
 
@@ -8,17 +9,25 @@ class BaseModel:
     """Represents a Base model."""
 
     def __init__(self, *args, **kwargs):
-        """Initialize a BaseModel instance with uuid and timestamps."""
-        if kwargs:
-            for k, v in kwargs.items():
-                if k == 'created_at' or k == 'updated_at':
-                    setattr(self, k, datetime.strptime(v, "%Y-%m-%dT%H:%M:%S.%f"))
+        """Initialize a BaseModel instance with uuid and timestamps.
+        
+        Args:
+            *args (any): Not used.
+            **kwargs (dict): K/v pairs of attr.
+        """
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
+        length = len(kwargs)
+
+        if length != 0:
+            for key, val in kwargs.items():
+                if key == 'created_at' or key == 'updated_at':
+                    self.__dict__[key] =  datetime.strptime(val, "%Y-%m-%dT%H:%M:%S.%f"))
                 else:
-                    setattr(self, k, v)
+                    self.__dict__[key] = val
         else:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """Return a string representation of the BaseModel instance.
@@ -40,3 +49,4 @@ class BaseModel:
     def save(self):
         """Updates the updated_at with current dt."""
         self.updated_at = datetime.now()
+        models.storage.save()
