@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Defines a BaseModel class"""
-import models
 import uuid
 from datetime import datetime
+import models
 
 
 class BaseModel:
@@ -19,11 +19,12 @@ class BaseModel:
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
         length = len(kwargs)
+        time_type = "%Y-%m-%dT%H:%M:%S.%f"
 
         if length != 0:
             for key, val in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
-                    self.__dict__[key] =  datetime.strptime(val, "%Y-%m-%dT%H:%M:%S.%f"))
+                    self.__dict__[key] =  datetime.strptime(val, time_type)
                 else:
                     self.__dict__[key] = val
         else:
@@ -36,7 +37,7 @@ class BaseModel:
             str: String representation of the BaseModel instance.
         """
         class_name = self.__class__.__name__
-        return "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
+        return f"[{class_name}] ({self.id}) {self.__dict__}"
 
     def to_dict(self):
         """Returns a dict representation of the BaseModel instance."""
