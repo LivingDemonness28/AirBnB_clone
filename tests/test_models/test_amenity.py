@@ -149,7 +149,7 @@ class TestAmenityInstantiation(unittest.TestCase):
         amen = Amenity()
         amen_name = Amenity.name
         self.assertEqual(str, type(amen_name))
-        self.assertIn("name", dir(Amenity()))
+        self.assertIn("name", dir(amen))
         self.assertNotIn("name", amen.__dict__)
 
     def test_stored_in_obj(self):
