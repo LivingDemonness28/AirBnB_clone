@@ -198,3 +198,7 @@ class TestCityInstantiation(unittest.TestCase):
         self.assertEqual(city.id, "456")
         self.assertEqual(city.created_at, _dt)
         self.assertEqual(city.updated_at, _dt)
+
+
+if __name__ == "__main__":
+    unittest.main()
