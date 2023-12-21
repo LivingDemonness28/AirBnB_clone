@@ -105,9 +105,9 @@ class TestAmenityToDict(unittest.TestCase):
     def test_dt_attr_strs(self):
         amen = Amenity()
         amen_dict = amen.to_dict()
-        self.assertEqual(str, amen_dict["id"])
-        self.assertEqual(str, amen_dict["created_at"])
-        self.assertEqual(str, amen_dict["updated_at"])
+        self.assertTrue(isinstance(amen_dict["id"], str))
+        self.assertTrue(isinstance(amen_dict["created_at"], str))
+        self.assertTrue(isinstance(amen_dict["updated_at"], str))
 
     def test_arg(self):
         amen = Amenity()
