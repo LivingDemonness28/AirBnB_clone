@@ -197,28 +197,28 @@ class TestPlaceInstantiation(unittest.TestCase):
     def test_long_pub_cls_attr(self):
         place = Place()
         place_long = Place.longitude
-        self.assertEqual(str, type(place_long))
+        self.assertEqual(float, type(place_long))
         self.assertIn("longitude", dir(place))
         self.assertNotIn("longitude", place.__dict__)
 
     def test_lat_pub_cls_attr(self):
         place = Place()
         place_lat = Place.latitude
-        self.assertEqual(str, type(place_lat))
+        self.assertEqual(float, type(place_lat))
         self.assertIn("latitude", dir(place))
         self.assertNotIn("latitude", place.__dict__)
 
     def test_max_guest_pub_cls_attr(self):
         place = Place()
         place_mg = Place.max_guest
-        self.assertEqual(str, type(place_mg))
+        self.assertEqual(int, type(place_mg))
         self.assertIn("max_guest", dir(place))
         self.assertNotIn("max_guest", place.__dict__)
 
     def test_amen_id_pub_cls_attr(self):
         place = Place()
         place_aid = Place.amenity_id
-        self.assertEqual(str, type(place_aid))
+        self.assertEqual(list, type(place_aid))
         self.assertIn("amenity_ids", dir(place))
         self.assertNotIn("amenity_ids", place.__dict__)
 
