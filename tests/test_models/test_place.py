@@ -169,7 +169,7 @@ class TestPlaceInstantiation(unittest.TestCase):
     def test_num_rooms_pub_cls_attr(self):
         place = Place()
         place_num_rooms = Place.number_rooms
-        self.assertEqual(str, type(place_num_rooms))
+        self.assertEqual(int, type(place_num_rooms))
         self.assertIn("number_rooms", dir(place))
         self.assertNotIn("number_rooms", place.__dict__)
 
@@ -183,14 +183,14 @@ class TestPlaceInstantiation(unittest.TestCase):
     def test_num_bthrm_pub_cls_attr(self):
         place = Place()
         place_bthrm = Place.number_bathrooms
-        self.assertEqual(str, type(place_bthrm))
+        self.assertEqual(int, type(place_bthrm))
         self.assertIn("number_bathrooms", dir(place))
         self.assertNotIn("number_bathrooms", place.__dict__)
 
     def test_price_by_night_pub_cls_attr(self):
         place = Place()
         place_pbn = Place.price_by_night
-        self.assertEqual(str, type(place_pbn))
+        self.assertEqual(int, type(place_pbn))
         self.assertIn("price_by_night", dir(place))
         self.assertNotIn("price_by_night", place.__dict__)
 
