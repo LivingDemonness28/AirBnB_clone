@@ -182,7 +182,7 @@ class TestUserInstantiation(unittest.TestCase):
 
     def test_email_pub_str(self):
         usr_email = User.email
-        self.assertEqual(str, usr_email)
+        self.assertEqual(str, type(usr_email))
 
     def test_password_pub_str(self):
         usr_pw = User.password
