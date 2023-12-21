@@ -146,22 +146,22 @@ class TestReviewInstantiation(unittest.TestCase):
         rev = Review()
         rev_text = Review.text
         self.assertEqual(str, type(rev_text))
-        self.assertIn("name", dir(rev))
-        self.assertNotIn("name", rev.__dict__)
+        self.assertIn("text", dir(rev))
+        self.assertNotIn("text", rev.__dict__)
 
     def test_user_id_pub_cls_attr(self):
         rev = Review()
         rev_user_id = Review.user_id
         self.assertEqual(str, type(rev_user_id))
-        self.assertIn("name", dir(rev))
-        self.assertNotIn("name", rev.__dict__)
+        self.assertIn("user_id", dir(rev))
+        self.assertNotIn("user_id", rev.__dict__)
 
     def test_place_id_pub_cls_attr(self):
         rev = Review()
         rev_place_id = Review.place_id
-        self.assertEqual(str, type(rev_place_id_id))
-        self.assertIn("name", dir(rev))
-        self.assertNotIn("name", rev.__dict__)
+        self.assertEqual(str, type(rev_place_id))
+        self.assertIn("place_id", dir(rev))
+        self.assertNotIn("place_id", rev.__dict__)
 
     def test_stored_in_obj(self):
         self.assertIn(Review(), models.storage.all().values())
