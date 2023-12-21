@@ -217,7 +217,7 @@ class TestPlaceInstantiation(unittest.TestCase):
 
     def test_amen_id_pub_cls_attr(self):
         place = Place()
-        place_aid = Place.amenity_id
+        place_aid = place.amenity_id
         self.assertEqual(list, type(place_aid))
         self.assertIn("amenity_ids", dir(place))
         self.assertNotIn("amenity_ids", place.__dict__)
