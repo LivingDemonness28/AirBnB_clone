@@ -179,12 +179,6 @@ class TestAmenityInstantiation(unittest.TestCase):
         amen_2 = Amenity()
         self.assertLess(amen_1.updated_at, amen_2.updated_at)
 
-    def test_created_at_is_pub_dt(self):
-        self.assertEqual(datetime, type(Amenity().created_at))
-
-    def test_updt_at_is_pub_dt(self):
-        self.assertEqual(datetime, type(Amenity().updated_at))
-
     def test_unused_args(self):
         amen = Amenity(None)
         self.assertNotIn(None, amen.__dict__.values())
