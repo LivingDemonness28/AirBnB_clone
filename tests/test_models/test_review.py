@@ -118,7 +118,7 @@ class TestReviewToDict(unittest.TestCase):
         rev_dd = rev.__dict__
         self.assertNotEqual(rev_dict, rev_dd)
 
-    class TestReviewInstantiation(unittest.TestCase):
+class TestReviewInstantiation(unittest.TestCase):
     """unittest: testing instantiation of Review class."""
 
     def test_id_pub_strs(self):
