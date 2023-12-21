@@ -91,8 +91,9 @@ class TestAmenityToDict(unittest.TestCase):
         amen = Amenity()
         amen.second_name = "ALX"
         amen.num = 28
+        amen_dict = amen.to_dict()
         self.assertEqual("ALX", amen.second_name)
-        self.assertIn("num", amen.to_dict)
+        self.assertIn("num", amen_dict)
 
     def test_correct_keys(self):
         amen = Amenity()
