@@ -195,5 +195,6 @@ class TestAmenityInstantiation(unittest.TestCase):
         self.assertEqual(amen.created_at, _dt)
         self.assertEqual(amen.updated_at, _dt)
 
+
 if __name__ == "__main__":
     unittest.main()
