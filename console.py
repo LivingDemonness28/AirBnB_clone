@@ -12,6 +12,7 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 
+
 def scan(arg):
     """Extracts elem from string"""
     braces = re.search(r"\{(.*?)\}", arg)
