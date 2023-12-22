@@ -71,7 +71,7 @@ class Test_FS_Methods(unittest.TestCase):
         self.assertIn(city, val)
         self.assertIn("Place." + place.id, key)
         self.assertIn(place, val)
-        self.assertIn("Review." + place.id, key)
+        self.assertIn("Review." + rev.id, key)
         self.assertIn(rev, val)
         self.assertIn("State." + state.id, key)
         self.assertIn(state, val)
