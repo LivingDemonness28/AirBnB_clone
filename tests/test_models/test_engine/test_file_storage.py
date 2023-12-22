@@ -62,7 +62,7 @@ class Test_FS_Methods(unittest.TestCase):
         models.storage.new(state)
         models.storage.new(usr)
         key = models.storage.all().keys()
-        val = models.storage.all().keys()
+        val = models.storage.all().values()
         self.assertIn("Amenity." + amen.id, key)
         self.assertIn(amen, val)
         self.assertIn("BaseModel." + base_mod.id, key)
