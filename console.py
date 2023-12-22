@@ -12,7 +12,6 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 
-
 def scan(arg):
     """Extracts elem from string"""
     braces = re.search(r"\{(.*?)\}", arg)
@@ -37,6 +36,7 @@ def scan(arg):
             ret_list.append(i.strip(","))
         ret_list.append(braces.group())
         return ret_list
+
 
 class HBNBCommand(cmd.Cmd):
     """Defines command interpreter.
