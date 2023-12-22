@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
         o_dict = storage.all()
         len1 = len(arg_list)
         if len1 == 0:
-            print("** missing class name **")
+            print("** class name missing **")
         elif arg_list[0] not in HBNBCommand.__cls:
             print("** class doesn't exist **")
         elif len1 == 1:
@@ -78,7 +78,7 @@ class HBNBCommand(cmd.Cmd):
         arg_list = scan(arg)
         len1 = len(arg_list)
         if (len1 > 0) and (arg_list[0] not in HBNBCommand.__cls):
-            print("** class does not exist **")
+            print("** class doesn't exist **")
         else:
             obj_list = []
             for i in storage.all().values():
@@ -104,13 +104,13 @@ class HBNBCommand(cmd.Cmd):
         o_dict = storage.all()
         len1 = len(arg_list)
         if len1 == 0:
-            print("** missing class name **")
+            print("** class name missing **")
         elif arg_list[0] not in HBNBCommand.__cls:
             print("** class does not exist **")
         elif len1 == 1:
             print("** instance id missing **")
         elif f"{arg_list[0]}.{arg_list[1]}" not in o_dict:
-            print("** instance not found **")
+            print("** no instance found **")
         else:
             print(o_dict[f"{arg_list[0]}.{arg_list[1]}"])
 
@@ -122,16 +122,16 @@ class HBNBCommand(cmd.Cmd):
         len1 = len(arg_list)
 
         if len1 == 0:
-            print("** missing class name **")
+            print("** class name missing **")
             return False
         if arg_list[0] not in HBNBCommand.__cls:
-            print("** class does not exist **")
+            print("** class doesn't exist **")
             return False
         if len1 == 1:
-            print("** missing instance id ***")
+            print("** instance id missing ***")
             return False
         if len1 == 2:
-            print("** missing attribute name **")
+            print("** attribute name missing **")
             return False
         if len1 == 3:
             try:
@@ -182,9 +182,9 @@ class HBNBCommand(cmd.Cmd):
         arg_list = scan(arg)
         len1 = len(arg_list)
         if len1(arg_list) == 0:
-            print("** missing class name **")
+            print("** class name missing **")
         elif arg_list[0] not in HBNBCommand.__cls:
-            print("** class does not exist")
+            print("** class doesn't exist")
         else:
             print(eval(arg_list[0])().id)
             storage.save()
