@@ -129,7 +129,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return False
         if len1 == 1:
-            print("** instance id missing ***")
+            print("** instance id missing **")
             return False
         if len1 == 2:
             print("** attribute name missing **")
