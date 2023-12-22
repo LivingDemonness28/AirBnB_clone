@@ -10,7 +10,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initialize a BaseModel instance with uuid and timestamps.
-        
+
         Args:
             *args (any): Not used.
             **kwargs (dict): K/v pairs of attr.
@@ -24,7 +24,7 @@ class BaseModel:
         if length != 0:
             for key, val in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
-                    self.__dict__[key] =  datetime.strptime(val, time_type)
+                    self.__dict__[key] = datetime.strptime(val, time_type)
                 else:
                     self.__dict__[key] = val
         else:
@@ -41,10 +41,11 @@ class BaseModel:
 
     def to_dict(self):
         """Returns a dict representation of the BaseModel instance."""
+        _dt = "%Y-%m-%dT%H:%M:%S.%f"
         res_dict = self.__dict__.copy()
         res_dict['__class__'] = self.__class__.__name__
-        res_dict['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        res_dict['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        res_dict['created_at'] = self.created_at.strftime(_dt)
+        res_dict['updated_at'] = self.updated_at.strftime(_dt)
         return res_dict
 
     def save(self):
