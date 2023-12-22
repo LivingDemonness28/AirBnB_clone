@@ -181,7 +181,7 @@ class HBNBCommand(cmd.Cmd):
         """create new class instance and print id"""
         arg_list = scan(arg)
         len1 = len(arg_list)
-        if len1(arg_list) == 0:
+        if len1 == 0:
             print("** class name missing **")
         elif arg_list[0] not in HBNBCommand.__cls:
             print("** class doesn't exist **")
