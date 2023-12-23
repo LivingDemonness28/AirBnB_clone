@@ -21,6 +21,9 @@ from models import storage
 from models.engine.file_storage import FileStorage
 
 
+list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+list2 = ["Amenity", "City", "Place", "Review", "State", "User"]
+
 class TestHBNBCmdAll(unittest.TestCase):
     """unittest: testing all of HBNB command interpreter"""
 
@@ -31,7 +34,7 @@ class TestHBNBCmdAll(unittest.TestCase):
         except IOError:
             pass
         FileStorage.__objects = {}
-    
+
     @classmethod
     def tearDown(self):
         try:
@@ -43,8 +46,7 @@ class TestHBNBCmdAll(unittest.TestCase):
         except IOError:
             pass
 
-    def test_single_dot_notation(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    def test_single_dot_not(self):
         len1 = len(list1)
 
         with patch("sys.stdout", new=StringIO()) as output:
@@ -53,7 +55,6 @@ class TestHBNBCmdAll(unittest.TestCase):
                 self.assertFalse(HBNBCommand().onecmd("create " + list1[i]))
                 i = i + 1
 
-        list2 = ["Amenity", "City", "Place", "Review", "State", "User"]
         len2 = len(list2)
         i = 0
         while i < len2:
@@ -65,9 +66,8 @@ class TestHBNBCmdAll(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("BaseModel.all()()"))
             self.assertIn("BaseModel", output.getvalue().strip())
             self.assertNotIn("User", output.getvalue().strip())
-        
-    def test_single_space_notation(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+
+    def test_single_space_not(self):
         len1 = len(list1)
 
         with patch("sys.stdout", new=StringIO()) as output:
@@ -76,7 +76,6 @@ class TestHBNBCmdAll(unittest.TestCase):
                 self.assertFalse(HBNBCommand().onecmd("create " + list1[i]))
                 i = i + 1
 
-        list2 = ["Amenity", "City", "Place", "Review", "State", "User"]
         len2 = len(list2)
         i = 0
 
@@ -90,7 +89,7 @@ class TestHBNBCmdAll(unittest.TestCase):
             self.assertIn("BaseModel", output.getvalue().strip())
             self.assertNotIn("User", output.getvalue().strip())
 
-    def test_dot_notation(self):
+    def test_dot_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create Amenity"))
             self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
@@ -109,7 +108,7 @@ class TestHBNBCmdAll(unittest.TestCase):
             self.assertIn("State", output.getvalue().strip())
             self.assertIn("User", output.getvalue().strip())
 
-    def test_space_notation(self):
+    def test_space_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create Amenity"))
             self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
@@ -127,7 +126,7 @@ class TestHBNBCmdAll(unittest.TestCase):
             self.assertIn("Review", output.getvalue().strip())
             self.assertIn("State", output.getvalue().strip())
             self.assertIn("User", output.getvalue().strip())
-        
+ 
     def test_inv_cls(self):
         i = "** class does not exist **"
         with patch("sys.stdout", new=StringIO()) as output:
@@ -160,7 +159,6 @@ class TestHBNBCmdCreate(unittest.TestCase):
             pass
 
     def test_obj(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
 
@@ -222,8 +220,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
             pass
         storage.reload()
 
-    def test_dot_notation(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    def test_dot_not(self):
         len1 = len(list1)
         i = 0
 
@@ -239,8 +236,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
                 self.assertNotIn(o, storage.all())
             i = i + 1
 
-    def test_space_notation(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    def test_space_not(self):
         len1 = len(list1)
         i = 0
 
@@ -256,8 +252,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
                 self.assertNotIn(o, storage.all())
             i = i + 1
 
-    def test_inv_id_dot_notation(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    def test_inv_id_dot_not(self):
         i = "** no instance found **"
         len1 = len(list1)
         j = 0
@@ -268,8 +263,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
                 self.assertEqual(i, output.getvalue().strip())
             j = j + 1
 
-    def test_inv_id_space_notation(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    def test_inv_id_space_not(self):
         i = "** no instance found **"
         len1 = len(list1)
         j = 0
@@ -280,8 +274,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
                 self.assertEqual(i, output.getvalue().strip())
             j = j + 1
 
-    def test_id_missing_dot_notation(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    def test_id_missing_dot_not(self):
         i = "** no instance found **"
         len1 = len(list1)
         j = 0
@@ -292,8 +285,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
                 self.assertEqual(i, output.getvalue().strip())
             j = j + 1
 
-    def test_inv_id_space_notation(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
+    def test_inv_id_space_not(self):
         i = "** no instance found **"
         len1 = len(list1)
         j = 0
@@ -452,7 +444,7 @@ class TestHBNBCmdShow(unittest.TestCase):
         except IOError:
             pass
 
-    def test_dot_notation(self):
+    def test_dot_not(self):
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
@@ -470,7 +462,7 @@ class TestHBNBCmdShow(unittest.TestCase):
                 self.assertEqual(o.__str__(), val)
             i = i + 1
 
-    def test_space_notation(self):
+    def test_space_not(self):
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
@@ -488,7 +480,7 @@ class TestHBNBCmdShow(unittest.TestCase):
                 self.assertEqual(o.__str__(), val)
             i = i + 1
 
-    def test_no_inst_found_dot_notation(self):
+    def test_no_inst_found_dot_not(self):
         i = "** no instance found **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -502,7 +494,7 @@ class TestHBNBCmdShow(unittest.TestCase):
                 self.assertEqual(i, val)
             i = i + 1
 
-    def test_no_inst_found_space_notation(self):
+    def test_no_inst_found_space_not(self):
         i = "** no instance found **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -516,7 +508,7 @@ class TestHBNBCmdShow(unittest.TestCase):
                 self.assertEqual(i, val)
             i = i + 1
 
-    def test_missing_id_notation(self):
+    def test_missing_id_not(self):
         i = "** instance id missing **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -530,7 +522,7 @@ class TestHBNBCmdShow(unittest.TestCase):
                 self.assertEqual(i, val)
             i = i + 1
 
-    def test_no_inst_found_space_notation(self):
+    def test_no_inst_found_space_not(self):
         i = "** no instance found **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -588,7 +580,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         except IOError:
             pass
 
-    def test_val_dict_flt_dot_notation(self):
+    def test_val_dict_flt_dot_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create Place")
             _t_id = output.getvalue().strip()
@@ -598,7 +590,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         test_dict = storage.all()[f"Place.{_t_id}"].__dict__
         self.assertEqual(9.8, test_dict["latitude"])
 
-    def test_val_dict_flt_space_notation(self):
+    def test_val_dict_flt_space_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create Place")
             _t_id = output.getvalue().strip()
@@ -608,7 +600,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         test_dict = storage.all()[f"Place.{_t_id}"].__dict__
         self.assertEqual(9.8, test_dict["latitude"])
 
-    def test_val_dict_int_dot_notation(self):
+    def test_val_dict_int_dot_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create Place")
             _t_id = output.getvalue().strip()
@@ -618,7 +610,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         test_dict = storage.all()[f"Place.{_t_id}"].__dict__
         self.assertEqual(9.8, test_dict["max_guest"])
 
-    def test_val_dict_int_space_notation(self):
+    def test_val_dict_int_space_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create Place")
             _t_id = output.getvalue().strip()
@@ -628,7 +620,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         test_dict = storage.all()[f"Place.{_t_id}"].__dict__
         self.assertEqual(9.8, test_dict["max_guest"])
 
-    def test_val_dict_dot_notation(self):
+    def test_val_dict_dot_not(self):
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
@@ -645,7 +637,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
             self.assertEqual("attr_value", test_dict["attr_name"])
             i = i + 1
 
-    def test_val_dict_space_notation(self):
+    def test_val_dict_space_not(self):
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
@@ -662,7 +654,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
             self.assertEqual("attr_value", test_dict["attr_name"])
             i = i + 1
 
-    def test_val_flt_attr_dot_notation(self):
+    def test_val_flt_attr_dot_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create Place")
             _t_id = output.getvalue().strip()
@@ -672,7 +664,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         test_dict = storage.all()[f"Place.{_t_id}"].__dict__
         self.assertEqual(7.2, test_dict["latitude"])
 
-    def test_val_flt_attr_space_notation(self):
+    def test_val_flt_attr_space_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create Place")
             _t_id = output.getvalue().strip()
@@ -682,7 +674,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         test_dict = storage.all()[f"Place.{_t_id}"].__dict__
         self.assertEqual(7.2, test_dict["latitude"])
 
-    def test_val_int_attr_dot_notation(self):
+    def test_val_int_attr_dot_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create Place")
             _t_id = output.getvalue().strip()
@@ -692,7 +684,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         test_dict = storage.all()[f"Place.{_t_id}"].__dict__
         self.assertEqual(72, test_dict["max_guest"])
 
-    def test_val_int_attr_space_notation(self):
+    def test_val_int_attr_space_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create Place")
             _t_id = output.getvalue().strip()
@@ -702,7 +694,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         test_dict = storage.all()[f"Place.{_t_id}"].__dict__
         self.assertEqual(72, test_dict["max_guest"])
 
-    def test_val_str_attr_dot_notation(self):
+    def test_val_str_attr_dot_not(self):
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
@@ -719,7 +711,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
             self.assertEqual("attr_value", test_dict["attr_name"])
             i = i + 1
 
-    def test_val_str_attr_space_notation(self):
+    def test_val_str_attr_space_not(self):
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
@@ -736,7 +728,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
             self.assertEqual("attr_value", _t_dict["attr_name"])
             i = i + 1
 
-    def test_missing_attr_value_dot_notation(self):
+    def test_missing_attr_value_dot_not(self):
         i = "** value missing **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -754,7 +746,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
                 self.assertEqual(i, val)
             j = j + 1
 
-    def test_missing_attr_value_space_notation(self):
+    def test_missing_attr_value_space_not(self):
         i = "** value missing **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -772,7 +764,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
                 self.assertEqual(i, val)
             j = j + 1
 
-    def test_missing_attr_name_dot_notation(self):
+    def test_missing_attr_name_dot_not(self):
         i = "** value missing **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -790,7 +782,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
                 self.assertEqual(i, val)
             j = j + 1
 
-    def test_missing_attr_name_space_notation(self):
+    def test_missing_attr_name_space_not(self):
         i = "** value missing **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -808,7 +800,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
                 self.assertEqual(i, val)
             j = j + 1
 
-    def test_inv_id_dot_notation(self):
+    def test_inv_id_dot_not(self):
         i = "** no instance found **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -822,7 +814,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
                 self.assertEqual(i, val)
             j = j + 1
 
-    def test_inv_id_space_notation(self):
+    def test_inv_id_space_not(self):
         i = "** no instance found **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -836,7 +828,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
                 self.assertEqual(i, val)
             j = j + 1
 
-    def test_missing_id_dot_notation(self):
+    def test_missing_id_dot_not(self):
         i = "** no instance found **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
@@ -850,7 +842,7 @@ class TestHBNBCmdUpdate(unittest.TestCase):
                 self.assertEqual(i, val)
             j = j + 1
 
-    def test_inv_id_space_notation(self):
+    def test_inv_id_space_not(self):
         i = "** no instance found **"
         list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
