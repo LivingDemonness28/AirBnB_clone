@@ -27,7 +27,7 @@ class TestHBNBCmdAll(unittest.TestCase):
     @classmethod
     def setUp(self):
         try:
-            os.rename("file.json")
+            os.rename("file.json", "tmp")
         except IOError:
             pass
         FileStorage.__objects = {}
@@ -233,8 +233,8 @@ class TestHBNBCmdDestroy(unittest.TestCase):
                 self.assertFalse(HBNBCommand().onecmd("create " + j))
                 t_id = output.getvalue().strip()
             with patch("sys.stdout", new=StringIO()) as output:
-                o = storage.all()[j + f".{t_id}"]
-                _cmd = "destroy " + j + f" {t_id}"
+                o = storage.all()[f"{j}.{t_id}"]
+                _cmd = f"destroy {j} {t_id}"
                 self.assertFalse(HBNBCommand().onecmd(_cmd))
                 self.assertNotIn(o, storage.all())
             i = i + 1
