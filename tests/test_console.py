@@ -234,7 +234,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
                 t_id = output.getvalue().strip()
             with patch("sys.stdout", new=StringIO()) as output:
                 o = storage.all()[j + f".{t_id}"]
-                _cmd = "destroy " j + f" {t_id}"
+                _cmd = "destroy " + j + f" {t_id}"
                 self.assertFalse(HBNBCommand().onecmd(_cmd))
                 self.assertNotIn(o, storage.all())
             i = i + 1
