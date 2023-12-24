@@ -410,12 +410,15 @@ class TestHBNBCmdHelp(unittest.TestCase):
             self.assertEqual(_help, val)
 
     def test_updt(self):
-        str1 = "Usage: update <class> <id> <attribute_name> <attribute_value> or"
-        str2 = "\n       <class>.update(<id>, <attribute_name>, <attribute_value"
-        str3 = ">) or\n       <class>.update(<id>, <dictionary>)\n        "
-        str4 = "Update a class instance of a given id by adding or updating\n   "
-        str5 = "     a given attribute key/value pair or dictionary."
-        _help = (str1 + str2 + str3 + str4 + str5)
+        str1 = "Usage: update <class> <id> "
+        str2 = "<attribute_name> <attribute_value> or"
+        str3 = "\n       <class>.update(<id>, "
+        str4 = "<attribute_name>, <attribute_value"
+        str5 = ">) or\n       <class>.update(<id>, <dictionary>)\n        "
+        str6 = "Update a class instance of a "
+        str7 = "given id by adding or updating\n   "
+        str8 = "     a given attribute key/value pair or dictionary."
+        _help = (str1 + str2 + str3 + str4 + str5 + str6 + str7 + str8)
         with patch("sys.stdout", new=StringIO()) as output:
             val = output.getvalue().strip()
             self.assertFalse(HBNBCommand().onecmd("help update"))
