@@ -133,7 +133,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
                 return False
         if len1 == 4:
-            o = o_dict[f"{arg_list[0]}.{arg_list[1]}"]
+            o = o_dict["{}.{}".format(arg_list[0], arg_list[1])]
             if arg_list[2] in o.__class__.__dict__.keys():
                 vt = type(o.__class__.__dict__[arg_list[2]])
                 o.__dict__[arg_list[2]] = vt(arg_list[3])
