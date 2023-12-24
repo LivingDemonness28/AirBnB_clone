@@ -50,22 +50,41 @@ class TestHBNBCmdAll(unittest.TestCase):
         len1 = len(list1)
 
         with patch("sys.stdout", new=StringIO()) as output:
-            i = 0
-            while i < len1:
-                self.assertFalse(HBNBCommand().onecmd("create " + list1[i]))
-                i = i + 1
-
-        len2 = len(list2)
-        i = 0
-        while i < len2:
-            with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("create Amenity"))
+            self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
+            self.assertFalse(HBNBCommand().onecmd("create City"))
+            self.assertFalse(HBNBCommand().onecmd("create Place"))
+            self.assertFalse(HBNBCommand().onecmd("create Review"))
+            self.assertFalse(HBNBCommand().onecmd("create State"))
+            self.assertFalse(HBNBCommand().onecmd("create User"))
+        with patch("sys.stdout", new=StringIO()) as output:
                 self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
-                self.assertIn(list2[i], output.getvalue().strip())
+                self.assertIn("Amenity", output.getvalue().strip())
                 self.assertNotIn("BaseModel", output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("BaseModel.all()()"))
             self.assertIn("BaseModel", output.getvalue().strip())
             self.assertNotIn("User", output.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as output:
+                self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+                self.assertIn("City", output.getvalue().strip())
+                self.assertNotIn("BaseModel", output.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as output:
+                self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+                self.assertIn("Place", output.getvalue().strip())
+                self.assertNotIn("BaseModel", output.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as output:
+                self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+                self.assertIn("Review", output.getvalue().strip())
+                self.assertNotIn("BaseModel", output.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as output:
+                self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+                self.assertIn("State", output.getvalue().strip())
+                self.assertNotIn("BaseModel", output.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as output:
+                self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+                self.assertIn("User", output.getvalue().strip())
+                self.assertNotIn("BaseModel", output.getvalue().strip())
 
     def test_single_space_not(self):
         len1 = len(list1)
