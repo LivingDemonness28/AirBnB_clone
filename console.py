@@ -76,7 +76,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             obj_list = []
             for i in storage.all().values():
-                if len1 > 0 and arg_list == i.__class__.__name__:
+                if len1 > 0 and arg_list[0] == i.__class__.__name__:
                     obj_list.append(i.__str__())
                 elif len1 == 0:
                     obj_list.append(i.__str__())
