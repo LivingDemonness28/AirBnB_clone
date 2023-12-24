@@ -260,7 +260,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
         j = 0
 
         while j < len1:
-            with patch("sys.stdout",new=StringIO()) as output:
+            with patch("sys.stdout", new=StringIO()) as output:
                 self.assertFalse(HBNBCommand().onecmd(j + ".destroy(1)"))
                 self.assertEqual(i, output.getvalue().strip())
             j = j + 1
@@ -271,7 +271,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
         j = 0
 
         while j < len1:
-            with patch("sys.stdout",new=StringIO()) as output:
+            with patch("sys.stdout", new=StringIO()) as output:
                 self.assertFalse(HBNBCommand().onecmd("destroy " + j + " 1"))
                 self.assertEqual(i, output.getvalue().strip())
             j = j + 1
@@ -282,7 +282,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
         j = 0
 
         while j < len1:
-            with patch("sys.stdout",new=StringIO()) as output:
+            with patch("sys.stdout", new=StringIO()) as output:
                 self.assertFalse(HBNBCommand().onecmd(j + ".destroy()"))
                 self.assertEqual(i, output.getvalue().strip())
             j = j + 1
@@ -293,7 +293,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
         j = 0
 
         while j < len1:
-            with patch("sys.stdout",new=StringIO()) as output:
+            with patch("sys.stdout", new=StringIO()) as output:
                 self.assertFalse(HBNBCommand().onecmd("destroy " + j))
                 self.assertEqual(i, output.getvalue().strip())
             j = j + 1
@@ -303,7 +303,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             val = output.getvalue().strip()
             self.assertFalse(HBNBCommand().onecmd("destroy MyModel"))
-            self.assertEqual(i,val)
+            self.assertEqual(i, val)
         with patch("sys.stdout", new=StringIO()) as output:
             val = output.getvalue().strip()
             self.assertFalse(HBNBCommand().onecmd("MyModel.destroy()"))
@@ -338,9 +338,9 @@ class TestHBNBCmdHelp(unittest.TestCase):
 
     def test_all(self):
         _help = ("Usage: all or all <class> or <class>.all()\n        "
-             "Display string representations of all instances of a given class"
-             ".\n        If no class is specified, displays all instantiated "
-             "objects.")
+                "Display string representations of all instances of a given class"
+                ".\n        If no class is specified, displays all instantiated "
+                "objects.")
         with patch("sys.stdout", new=StringIO()) as output:
             val = output.getvalue().strip()
             self.assertFalse(HBNBCommand().onecmd("help all"))
