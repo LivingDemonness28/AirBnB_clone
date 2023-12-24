@@ -56,7 +56,7 @@ class TestHBNBCmdAll(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("create State"))
             self.assertFalse(HBNBCommand().onecmd("create User"))
         with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+            self.assertFalse(HBNBCommand().onecmd("Amenity.all()()"))
             self.assertIn("Amenity", output.getvalue().strip())
             self.assertNotIn("BaseModel", output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
@@ -64,47 +64,63 @@ class TestHBNBCmdAll(unittest.TestCase):
             self.assertIn("BaseModel", output.getvalue().strip())
             self.assertNotIn("User", output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+            self.assertFalse(HBNBCommand().onecmd("City.all()()"))
             self.assertIn("City", output.getvalue().strip())
             self.assertNotIn("BaseModel", output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+            self.assertFalse(HBNBCommand().onecmd("Place.all()()"))
             self.assertIn("Place", output.getvalue().strip())
             self.assertNotIn("BaseModel", output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+            self.assertFalse(HBNBCommand().onecmd("Review.all()()"))
             self.assertIn("Review", output.getvalue().strip())
             self.assertNotIn("BaseModel", output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+            self.assertFalse(HBNBCommand().onecmd("State.all()()"))
             self.assertIn("State", output.getvalue().strip())
             self.assertNotIn("BaseModel", output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd(list2[i] + ".all()()"))
+            self.assertFalse(HBNBCommand().onecmd("User.all()()"))
             self.assertIn("User", output.getvalue().strip())
             self.assertNotIn("BaseModel", output.getvalue().strip())
 
     def test_single_space_not(self):
-        len1 = len(list1)
-
         with patch("sys.stdout", new=StringIO()) as output:
-            i = 0
-            while i < len1:
-                self.assertFalse(HBNBCommand().onecmd("create " + list1[i]))
-                i = i + 1
-
-        len2 = len(list2)
-        i = 0
-
-        while i < len2:
-            with patch("sys.stdout", new=StringIO()) as output:
-                self.assertFalse(HBNBCommand().onecmd("all " + list2[i]))
-                self.assertIn(list2[i], output.getvalue().strip())
-                self.assertNotIn("BaseModel", output.getvalue().strip())
+            self.assertFalse(HBNBCommand().onecmd("create Amenity"))
+            self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
+            self.assertFalse(HBNBCommand().onecmd("create City"))
+            self.assertFalse(HBNBCommand().onecmd("create Place"))
+            self.assertFalse(HBNBCommand().onecmd("create Review"))
+            self.assertFalse(HBNBCommand().onecmd("create State"))
+            self.assertFalse(HBNBCommand().onecmd("create User"))
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("all Amenity"))
+            self.assertIn("Amenity", output.getvalue().strip())
+            self.assertNotIn("BaseModel", output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("all BaseModel"))
             self.assertIn("BaseModel", output.getvalue().strip())
             self.assertNotIn("User", output.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("all City"))
+            self.assertIn("City", output.getvalue().strip())
+            self.assertNotIn("BaseModel", output.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("all Place"))
+            self.assertIn("Place", output.getvalue().strip())
+            self.assertNotIn("BaseModel", output.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("all Review"))
+            self.assertIn("Review", output.getvalue().strip())
+            self.assertNotIn("BaseModel", output.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("all State"))
+            self.assertIn("State", output.getvalue().strip())
+            self.assertNotIn("BaseModel", output.getvalue().strip())
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("all User"))
+            self.assertIn("User", output.getvalue().strip())
+            self.assertNotIn("BaseModel", output.getvalue().strip())
 
     def test_dot_not(self):
         with patch("sys.stdout", new=StringIO()) as output:
