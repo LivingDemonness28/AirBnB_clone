@@ -462,7 +462,6 @@ class TestHBNBCmdShow(unittest.TestCase):
             pass
 
     def test_dot_not(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
 
@@ -480,7 +479,6 @@ class TestHBNBCmdShow(unittest.TestCase):
             i = i + 1
 
     def test_space_not(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
 
@@ -499,7 +497,6 @@ class TestHBNBCmdShow(unittest.TestCase):
 
     def test_no_inst_found_dot_not(self):
         i = "** no instance found **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
 
@@ -513,7 +510,6 @@ class TestHBNBCmdShow(unittest.TestCase):
 
     def test_no_inst_found_space_not(self):
         i = "** no instance found **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
 
@@ -527,7 +523,6 @@ class TestHBNBCmdShow(unittest.TestCase):
 
     def test_missing_id_not(self):
         i = "** instance id missing **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
 
@@ -541,7 +536,6 @@ class TestHBNBCmdShow(unittest.TestCase):
 
     def test_no_inst_found_space_not(self):
         i = "** no instance found **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
 
@@ -639,10 +633,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         self.assertEqual(9.8, test_dict["max_guest"])
 
     def test_val_dict_dot_not(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
-        
+
         while i < len1:
             j = list1[i]
             with patch("sys.stdout", new=StringIO()) as output:
@@ -656,10 +649,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
             i = i + 1
 
     def test_val_dict_space_not(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
-        
+
         while i < len1:
             j = list1[i]
             with patch("sys.stdout", new=StringIO()) as output:
