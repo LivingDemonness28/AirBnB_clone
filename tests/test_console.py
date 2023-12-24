@@ -705,10 +705,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
         self.assertEqual(72, test_dict["max_guest"])
 
     def test_val_str_attr_dot_not(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
-        
+
         while i < len1:
             j = list1[i]
             with patch("sys.stdout", new=StringIO()) as output:
@@ -722,10 +721,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
             i = i + 1
 
     def test_val_str_attr_space_not(self):
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         i = 0
-        
+
         while i < len1:
             j = list1[i]
             with patch("sys.stdout", new=StringIO()) as output:
@@ -740,10 +738,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
 
     def test_missing_attr_value_dot_not(self):
         i = "** value missing **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         j = 0
-        
+
         while j < len1:
             k = list1[j]
             with patch("sys.stdout", new=StringIO()) as output:
@@ -758,10 +755,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
 
     def test_missing_attr_value_space_not(self):
         i = "** value missing **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         j = 0
-        
+
         while j < len1:
             k = list1[j]
             with patch("sys.stdout", new=StringIO()) as output:
@@ -776,10 +772,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
 
     def test_missing_attr_name_dot_not(self):
         i = "** value missing **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         j = 0
-        
+
         while j < len1:
             k = list1[j]
             with patch("sys.stdout", new=StringIO()) as output:
@@ -794,10 +789,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
 
     def test_missing_attr_name_space_not(self):
         i = "** value missing **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         j = 0
-        
+
         while j < len1:
             k = list1[j]
             with patch("sys.stdout", new=StringIO()) as output:
@@ -812,10 +806,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
 
     def test_inv_id_dot_not(self):
         i = "** no instance found **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         j = 0
-        
+
         while j < len1:
             k = list1[j]
             with patch("sys.stdout", new=StringIO()) as output:
@@ -826,10 +819,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
 
     def test_inv_id_space_not(self):
         i = "** no instance found **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         j = 0
-        
+
         while j < len1:
             k = list1[j]
             with patch("sys.stdout", new=StringIO()) as output:
@@ -840,10 +832,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
 
     def test_missing_id_dot_not(self):
         i = "** no instance found **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         j = 0
-        
+
         while j < len1:
             k = list1[j]
             with patch("sys.stdout", new=StringIO()) as output:
@@ -854,10 +845,9 @@ class TestHBNBCmdUpdate(unittest.TestCase):
 
     def test_inv_id_space_not(self):
         i = "** no instance found **"
-        list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
         len1 = len(list1)
         j = 0
-        
+
         while j < len1:
             k = list1[j]
             with patch("sys.stdout", new=StringIO()) as output:
