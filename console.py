@@ -71,15 +71,14 @@ class HBNBCommand(cmd.Cmd):
         If no class specified, displays all instantiated objects."""
         arg_list = scan(arg)
         len1 = len(arg_list)
-        if (len1 > 0) and (arg_list[0] not in HBNBCommand.__cls):
+        if len1 > 0 and arg_list[0] not in HBNBCommand.__cls:
             print("** class doesn't exist **")
         else:
             obj_list = []
             for i in storage.all().values():
-                len2 = len(arg_list)
-                if (len2 > 0) and (arg_list == i.__class__.__name__):
+                if len1 > 0 and arg_list == i.__class__.__name__:
                     obj_list.append(i.__str__())
-                elif len2 == 0:
+                elif len1 == 0:
                     obj_list.append(i.__str__())
             print(obj_list)
 
