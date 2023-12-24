@@ -201,7 +201,7 @@ class TestHBNBCmdCreate(unittest.TestCase):
                 j = output.getvalue().strip()
                 self.assertFalse(HBNBCommand().onecmd("create " + list1[i]))
                 self.assertLess(0, len(j))
-                tk = f"Amenity.{j}"
+                tk = f"{list1[i]}.{j}"
                 self.assertIn(tk, storage.all().keys())
             i = i + 1
 
