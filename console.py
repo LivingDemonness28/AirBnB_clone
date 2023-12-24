@@ -88,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
                     obj_list.append(i.__str__())
                 elif len2 == 0:
                     obj_list.append(i.__str__())
-                print(obj_list)
+            print(obj_list)
 
     def do_count(self, arg):
         """Retrieve num of instances of given class"""
