@@ -166,7 +166,7 @@ class HBNBCommand(cmd.Cmd):
             arg_list = [arg[:match.span()[0]], arg[match.span()[1]:]]
             match = re.search(r"\((.*?)\)", arg_list[1])
             if match is not None:
-                _cmd = [arg_list[1][match.span()[0]], match.group()[1:-1]]
+                _cmd = [arg_list[1][:match.span()[0]], match.group()[1:-1]]
                 if _cmd[0] in arg_dict.keys():
                     call = f"{arg_list[0]} {_cmd[1]}"
                     return arg_dict[_cmd[0]](call)
