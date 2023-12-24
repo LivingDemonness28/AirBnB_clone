@@ -198,6 +198,7 @@ class TestHBNBCmdCreate(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("BaseModel.create()"))
             self.assertEqual(j, val)
 
+
 class TestHBNBCmdDestroy(unittest.TestCase):
     """unittest: testing destroy of HBNB command interpreter"""
 
@@ -319,6 +320,7 @@ class TestHBNBCmdDestroy(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd(".destroy()"))
             self.assertEqual(i, val)
 
+
 class TestHBNBCmdExit(unittest.TestCase):
     """unittest: testing exit of HBNB command interpreter"""
 
@@ -329,6 +331,7 @@ class TestHBNBCmdExit(unittest.TestCase):
     def test_EOF(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertTrue(HBNBCommand().onecmd("EOF"))
+
 
 class TestHBNBCmdHelp(unittest.TestCase):
     """unittest: testing help of HBNB command interpreter"""
@@ -410,6 +413,7 @@ class TestHBNBCmdHelp(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("help update"))
             self.assertEqual(_help, val)
 
+
 class TestHBNBCmdPrompting(unittest.TestCase):
     """unittest: testing prompting of HBNB command interpreter"""
 
@@ -422,6 +426,7 @@ class TestHBNBCmdPrompting(unittest.TestCase):
     def test_str(self):
         _prompt = HBNBCommand.prompt
         self.assertEqual("(hbnb) ", _prompt)
+
 
 class TestHBNBCmdShow(unittest.TestCase):
     """unittest: testing show of HBNB command interpreter"""
@@ -558,6 +563,7 @@ class TestHBNBCmdShow(unittest.TestCase):
             val = output.getvalue().strip()
             self.assertFalse(HBNBCommand().onecmd("MyModel.show()"))
             self.assertEqual(i, val)
+
 
 class TestHBNBCmdUpdate(unittest.TestCase):
     """unittest: testing update of HBNB command interpreter"""
