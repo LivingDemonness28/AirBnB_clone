@@ -337,9 +337,9 @@ class TestHBNBCmdHelp(unittest.TestCase):
     """unittest: testing help of HBNB command interpreter"""
 
     def test_all(self):
-        _help = ("Usage: all or all <class> or <class>.all()\n        "
-                "Display string representations of all instances of a given class"
-                ".\n        If no class is specified, displays all instantiated "
+        _help = ("Usage: all or all <class> or <class>.all()\n"
+                 "Display string representations of all instances of a given class"
+                 ".\n If no class is specified, displays all instantiated "
                 "objects.")
         with patch("sys.stdout", new=StringIO()) as output:
             val = output.getvalue().strip()
