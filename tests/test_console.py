@@ -20,9 +20,9 @@ from console import HBNBCommand
 from models import storage
 from models.engine.file_storage import FileStorage
 
-
 list1 = ["Amenity", "BaseModel", "City", "Place", "Review", "State", "User"]
 list2 = ["Amenity", "City", "Place", "Review", "State", "User"]
+
 
 class TestHBNBCmdAll(unittest.TestCase):
     """unittest: testing all of HBNB command interpreter"""
@@ -126,7 +126,7 @@ class TestHBNBCmdAll(unittest.TestCase):
             self.assertIn("Review", output.getvalue().strip())
             self.assertIn("State", output.getvalue().strip())
             self.assertIn("User", output.getvalue().strip())
- 
+
     def test_inv_cls(self):
         i = "** class does not exist **"
         with patch("sys.stdout", new=StringIO()) as output:
@@ -135,6 +135,7 @@ class TestHBNBCmdAll(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("MyModel.all()"))
             self.assertEqual(i, output.getvalue().strip())
+
 
 class TestHBNBCmdCreate(unittest.TestCase):
     """unittest: testing create of HBNB command interpreter"""
@@ -166,7 +167,7 @@ class TestHBNBCmdCreate(unittest.TestCase):
             with patch("sys.stdout", new=StringIO()) as output:
                 j = output.getvalue().strip()
                 self.assertFalse(HBNBCommand().onecmd("create " + list1[i]))
-                self.assertLess(0,len(j))
+                self.assertLess(0, len(j))
                 tk = f"Amenity.{j}"
                 self.assertIn(tk, storage.all().keys())
             i = i + 1
