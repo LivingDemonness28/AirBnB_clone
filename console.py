@@ -123,6 +123,9 @@ class HBNBCommand(cmd.Cmd):
         if len1 == 1:
             print("** instance id missing **")
             return False
+        if f"{arg_list[0]}.{arg_list[1]}" not in o_dict.keys():
+            print("** no instance found **")
+            return False
         if len1 == 2:
             print("** attribute name missing **")
             return False
