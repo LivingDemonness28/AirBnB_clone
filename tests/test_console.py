@@ -338,10 +338,11 @@ class TestHBNBCmdHelp(unittest.TestCase):
 
     def test_all(self):
         str1 = "Usage: all or all <class> or <class>.all()\n        "
-        str2 = "Display string representations of all instances of a given class"
-        str3 = ".\n       If no class is specified, displays all instantiated "
-        str4 = "objects."
-        _help = (str1 + str2 + str3 + str4)
+        str2 = "Display string representations of all instances of "
+        str3 = "a given class"
+        str4 = ".\n       If no class is specified, displays all instantiated "
+        str5 = "objects."
+        _help = (str1 + str2 + str3 + str4 + str5)
         with patch("sys.stdout", new=StringIO()) as output:
             val = output.getvalue().strip()
             self.assertFalse(HBNBCommand().onecmd("help all"))
