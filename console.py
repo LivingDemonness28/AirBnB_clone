@@ -100,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
         if len1 == 0:
             print("** class name missing **")
         elif arg_list[0] not in HBNBCommand.__cls:
-            print("** class does not exist **")
+            print("** class doesn't exist **")
         elif len1 == 1:
             print("** instance id missing **")
         elif f"{arg_list[0]}.{arg_list[1]}" not in o_dict:
