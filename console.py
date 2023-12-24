@@ -19,22 +19,15 @@ def scan(arg):
     brackets = re.search(r"\[(.*?)\]", arg)
     if braces is None:
         if brackets is None:
-            res = []
-            for i in split(arg):
-                res.append(i.strip(","))
-            return res
+            return [i.strip(",") for i in split(arg)]
         else:
             prefix = split(arg[:brackets.span()[0]])
-            ret_list = []
-            for i in prefix:
-                ret_list.append(i.strip(","))
+            ret_list = [i.strip(",") for i in prefix]
             ret_list.append(brackets.group())
             return ret_list
     else:
         prefix = split(arg[:braces.span()[0]])
-        ret_list = []
-        for i in prefix:
-            ret_list.append(i.strip(","))
+        ret_list = [i.strip(",") for i in prefix]
         ret_list.append(braces.group())
         return ret_list
 
