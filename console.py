@@ -40,13 +40,13 @@ class HBNBCommand(cmd.Cmd):
     """
     prompt = "(hbnb) "
     __cls = {
-        "User",
-        "Basemodel",
-        "State",
         "Amenity",
+        "BaseModel",
         "City",
         "Place",
-        "Review"
+        "Review",
+        "State",
+        "User"
     }
 
     def do_destroy(self, arg):
